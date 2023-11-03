@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <center>
+        <h1>NAVGURUKUL AMRAVATI</h1>
+        <img src="nav.jpg" alt="Trulli" width="800" height="450">
+
+    </center>
+    
+   
+    <title>Document</title>
+</head>
+<body>
+    <h1><u>Room shuffling Data</u></h1>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Room Shuffling</title>
+    <style>
+        
+        table {
+            border-collapse: collapse;
+            width: 70%;
+        }
+        
+        table, th, td {
+            border: 1px solid rgb(45, 235, 77);
+            background-color: aliceblue;
+        
+        }
+        td, th {
+            padding: 5px;
+            text-align: center;
+            font-size: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th><u>Room no.</u></th>
+                <th><u>Student- 1</u></th>
+                <th><u>Student -2</u></th>
+                <th><u>Student- 3</u></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be added here via JS -->
+        </tbody>
+    </table>
+    <br>
+    
+    <center>
+    <button onclick="refreshList()">SHUFFLE</button>
+    <style>
+        
+        button {
+            border-collapse: collapse;
+            width: 10%;
+        }
+        button {
+            background-color: lightcoral;
+        }
+        button:hover {
+            background-color: lightseagreen;
+        }
+        button{
+            padding: 10px;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+    </center>
+    
+    <script>
+        const students = [
+            "sneha yawatkar", "nikita  rathod", "radha  kavitkar", "sarika  kale",
+             "bhagyashri  mahore",
+            "chanda  dod", "sapana sawai", "pooja wankar", "puja wankhade", "monali dhole",
+            "suchita sharma", "aditi  dhahake", "mauli sharma", "vaishanvi  wankhade", "yamini shende",
+            "chakuli  pote", "rani  mukhargi", "trupti  nighot", "pragati  dhike", "Tina tayde",
+            "monali dhole", "aishwarya  vibhute", "aarti  sharma", "kalpana  dhage", "Yogita  kurhade",
+            "rinkal bahurupi", "rashami desai", "radhika lahane", "anuradha more", "khushi sable",
+            "divya  gondase", "rakhi  thoke", "roshani  nayde", "neha  dhore", "sakshi  Avinashe",
+            "chhamika kutemate", "Krutika tatte", "lina tathal", "Mona yawale", "anuja raut",
+            "samiksha  malsne", "prerna  ghuhe", "yogshri  shende", "roshani rewatkar", "Sampada  kende"
+        ];
+
+        function populateTable() {
+            let tableBody = document.querySelector("#studentTable tbody");
+            tableBody.innerHTML = "";
+
+            for (let i = 0; i < students.length; i += 3) {
+                let row = tableBody.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                let cell3 = row.insertCell(2);
+                let cell4 = row.insertCell(3);
+                
+                cell1.innerHTML = (i / 3) + 1; // Room number
+                cell2.innerHTML = students[i];
+                cell3.innerHTML = students[i + 1] || ''; // These checks ensure that even if the total student count is not a multiple of 3, it won't throw an error.
+                cell4.innerHTML = students[i + 2] || '';
+            }
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]]; // swap elements
+            }
+        }
+
+        function refreshList() {
+            shuffleArray(students);
+            populateTable();
+        }
+
+        // Initial population of the table
+        populateTable();
+    </script>
+</body>
+</html>
+    
+</body>
+</html>
